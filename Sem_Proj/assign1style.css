@@ -1,57 +1,132 @@
 body {
+
     background-color: rgb(249, 251, 255);
+
 }
+
+
 
 h1 {
+
     color: black;
+
     text-align: center;
+
 }
+
+
 
 p {
+
     font-family: verdana;
+
     font-size: 15px;
+
 }
+
+
 
 nav {
+
     background-color: rgb(42, 54, 56);
+
     overflow: hidden;
+
 	border-radius:10px;
+
 	border-bottom:5px solid;
+
 	border-bottom-color:rgb(70, 70, 70);
+
 	border-top:5px solid;
+
 	border-top-color:rgb(70, 70, 70);
+
 }
+
 nav li{
+
 	display: inline;
+
 }
+
+
 
 nav ul li a {
+
 	list-style-type: none;
+
     color: rgb(244, 244, 244);
+
     text-align: center;
+
     padding: 14px 16px;
+
     font-size: 17px;
+
 	text-decoration:none;
+
 }
+
+
 
 nav ul li a:hover {
+
     background-color: rgb(167, 224, 232);
+
     color: black;
+
 }
+
+
 
 nav ul li a.active {
+
     background-color: rgb(98, 111, 142);
+
     color: white;
+
 }
 
+
+
 div.main{
+
 	margin:14px;
+
 	background-color: rgba(144, 153, 155, .2);
+
 	border-radius: 5px;
+
 	border: 2px solid;
+
 	border-top-color: rgba(174, 183, 185, 1);
+
 	border-left-color: rgba(174, 183, 185, 1);
+
 	border-right-color: rgba(144, 153, 155, 1);
+
 	border-bottom-color: rgba(144, 153, 155, 1);
+
 	padding:15px;
+
+}
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
 }
