@@ -9,28 +9,26 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 
-print "	
-<nav>\n
-  <ul>\n
-    <li><a href='home.php'>Home</a></li>\n
-    <li><a href='about.php'>About</a></li>\n
-    <li><a href='#' class='active'>Contact Us</a></li>\n
-  </ul>\n
-</nav>\n
-<div class='main'>\n
-<h1>Contact Us</h1>\n
-<form action='assign1form.php' method='post' id='contactform'>\n
-Email Address: <input type='email' name='email'><br/>\n
-Phone Number: <input type='number' name='phone'><br/>\n
-<br/>\n
-<input type='submit'> <br/>\n
-<br/>\n
-</form>\n
+print "<nav>\n";
+print " <ul>\n";
+print "  <li><a href='home.php'>Home</a></li>\n";
+print "  <li><a href='about.php'>About</a></li>\n";
+print "  <li><a href='#' class='active'>Contact Us</a></li>\n";
+print "  <li><a href='search.php'>Search</a><li>\n";
+print " </ul>\n";
+print "</nav>\n";
 
-<textarea name='comment' form='contactform' placeholder='Enter text here...'></textarea>\n
-
-</div>\n
-";
+print "<div class='main'>\n";
+print " <h1>Contact Us</h1>\n";
+print "   <form action='assign1form.php' method='post' id='contactform'>\n";
+print "     Email Address: <input type='email' name='email'><br/>\n";
+print "     Phone Number: <input type='number' name='phone'><br/>\n";
+print "     <br/>\n";
+print "     <input type='submit'> <br/>\n";
+print "     <br/>\n";
+print "   </form>\n";
+print "   <textarea name='comment' form='contactform' placeholder='Enter text here...'></textarea>\n";
+print "</div>\n";
 
 print $page->getBottomSection();
 

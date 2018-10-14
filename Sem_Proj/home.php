@@ -14,11 +14,13 @@ print "		<ul>\n";
 print "     	<li><a href='#' class='active'>Home</a></li>\n";
 print "		   	<li><a href='about.php'>About</a></li>\n";
 print "     	<li><a href='contact.php'>Contact Us</a></li>\n";
+print "         <li><a href='search.php'>Search</a><li>\n";
 print "   	</ul>\n";
 print "	</nav>\n";
+
 print " <div class='main'>\n";
 print " 	<h1>Home</h1>\n";
-print " 	<p>This is the homepage for assignment 1.</p>\n";
+print " 	<p>This is the homepage for Sprint 1 Assignment.</p>\n";
 print "	</div>\n";
 
 print $page->getBottomSection();
