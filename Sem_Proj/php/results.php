@@ -15,6 +15,10 @@ print $nav->getNav();
 print " <div class='main'>\n";
 print " 	<h1>Query</h1>\n";
 
+function checkEmpty($value) {
+    return !empty($value);
+}
+
 if (isset($_POST['search']) && checkEmpty($_POST['search']))
 {
 	//Create DB object
