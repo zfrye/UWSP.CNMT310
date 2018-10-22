@@ -4,7 +4,7 @@ require_once("Template.php");
 require_once("NavBar.php");
 
 $page = new Template("Home");
-$page->setHeadSection("</script><link rel='stylesheet' href='assign1style.css'>");
+$page->setHeadSection("<link rel='stylesheet' href='assign1style.css'>");
 $page->setTopSection();
 $page->setBottomSection();
 
