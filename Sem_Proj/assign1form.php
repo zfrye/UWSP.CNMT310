@@ -1,19 +1,17 @@
 <?php
 require_once("Template.php");
 require_once("DB.class.php");
+require_once("NavBar.php");
 $page = new Template("Thank You");
 $page->setHeadSection("<script src='assign1form.php'></script><link rel='stylesheet' href='assign1style.css'>");
 $page->setTopSection();
 $page->setBottomSection();
 print $page->getTopSection();
-print "<nav>\n";
-print " <ul>\n";
-print "  <li><a href='home.php'>Home</a></li>\n";
-print "  <li><a href='about.php'>About</a></li>\n";
-print "  <li><a href='#' class='active'>Contact Us</a></li>\n";
-print "  <li><a href='search.php'>Search</a><li>\n";
-print " </ul>\n";
-print "</nav>\n";
+
+$nav = new NavBar(basename($_SERVER['REQUEST_URI']));
+$nav->setNavSection();
+print $nav->getNav();
+
 function checkEmpty($value) {
 	return !empty($value);
 }
