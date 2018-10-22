@@ -1,6 +1,7 @@
 <?php
 
 require_once("Template.php");
+require_once("NavBar.php");
 
 $page = new Template("Home");
 $page->setHeadSection("<script src='assign1js.js'></script><link rel='stylesheet' href='assign1style.css'>");
@@ -9,14 +10,9 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 
-print "	<nav>\n";
-print "		<ul>\n";
-print "     	<li><a href='#' class='active'>Home</a></li>\n";
-print "		   	<li><a href='about.php'>About</a></li>\n";
-print "     	<li><a href='contact.php'>Contact Us</a></li>\n";
-print "         <li><a href='search.php'>Search</a><li>\n";
-print "   	</ul>\n";
-print "	</nav>\n";
+$nav = new NavBar(basename($_SERVER['REQUEST_URI']));
+$nav->setNavSection();
+print $nav->getNav();
 
 print " <div class='main'>\n";
 print " 	<h1>Home</h1>\n";
