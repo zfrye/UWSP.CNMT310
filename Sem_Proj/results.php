@@ -25,14 +25,14 @@ $search = $_POST["search"];
 $searchSan = $db->dbEsc($search);
 
 //Search Query String
-$query = "SELECT * FROM bookinfo WHERE $searchSan = bookinfo.booktitle OR $searchSan = bookinfo.author OR $searchSan = bookinfo.isbn;";
+$query = "SELECT * FROM bookinfo WHERE '$searchSan' = bookinfo.booktitle OR '$searchSan' = bookinfo.author OR '$searchSan' = bookinfo.isbn;";
 
 //Execute Query
 $result = $db->dbCall($query);
 
 //Print error if failed query
 if(!$result){
-	print "Error \n";
+	print "No Results Found \n";
 	exit;
 }
 
