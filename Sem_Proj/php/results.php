@@ -30,14 +30,11 @@ if (isset($_POST['search']) && checkEmpty($_POST['search']))
 	  exit;
 	}
 
-	//Set Search Term from POST
-	$search = $_POST["search"];
-
 	//Sanitize Database Input
-	$searchSan = $db->dbEsc($search);
+	$searchSan = $db->dbEsc($_POST["search"]);
 
 	//Search Query String
-	$query = "SELECT * FROM bookinfo WHERE '$searchSan' = bookinfo.booktitle OR '$searchSan' = bookinfo.author OR '$searchSan' = bookinfo.isbn;";
+	$query = "SELECT * FROM bookinfo WHERE '$searchSan' LIKE bookinfo.booktitle OR '$searchSan' LIKE bookinfo.author OR '$searchSan' LIKE bookinfo.isbn;";
 
 	//Execute Query
 	$result = $db->dbCall($query);
