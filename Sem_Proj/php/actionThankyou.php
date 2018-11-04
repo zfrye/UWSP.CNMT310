@@ -48,8 +48,12 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 			exit;
 		}
 	}
+	else{
+		echo "Please enter a valid email address."; 
+	}
 	
-}else{
+}
+else{
 	echo "Please fill out all of the fields."; 
 }
 
