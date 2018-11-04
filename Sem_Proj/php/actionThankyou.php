@@ -51,7 +51,7 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 	}
 	
 }else{
-	echo "Error"; 
+	echo "Please fill out all of the fields."; 
 }
 
 print $page->getBottomSection();
