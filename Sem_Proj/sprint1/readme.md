@@ -1,4 +1,4 @@
-This is the Directory for the Semester long group project for group 2.
+This is the Sprint 1 Directory.
 
 
 
