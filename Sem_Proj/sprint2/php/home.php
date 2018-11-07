@@ -17,7 +17,7 @@ print $nav->getNav();
 
 print " <div class='main'>\n";
 print " 	<h1>Home</h1>\n";
-print " 	<p>This is the homepage for Sprint 1 Assignment.</p>\n";
+print " 	<p>This is the homepage for Sprint 1 and 2 Assignment.</p>\n";
 print "	</div>\n";
 
 print $page->getBottomSection();

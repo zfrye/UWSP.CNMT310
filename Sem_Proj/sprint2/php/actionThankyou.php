@@ -13,11 +13,13 @@ $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
 $nav->setNavSection();
 print $nav->getNav();
 
+print "<div class ='main'>\n";
+
 function checkEmpty($value) {
 	return !empty($value);
 }
 if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comment']) && checkEmpty($_POST['comment'])) {
-	print "Thank you for contacting us, someone will get back to you shortly";
+	print "Thank you for contacting us, someone will get back to you shortly. <br/>";
 	
 	//Create DB object
 	$db = new DB();
@@ -53,6 +55,8 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 }else{
 	echo "Error"; 
 }
+
+print "</div>\n";
 
 print $page->getBottomSection();
 ?>
