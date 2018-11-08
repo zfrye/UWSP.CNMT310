@@ -156,13 +156,12 @@ div.modal input[type=text],div.modal input[type=password]{
 }
 
 button {
-	background-color: rgb(110, 120, 152);
+	background-color: rgb(98, 111, 142);
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	border-radius:10px;
 }
 
 button:hover{
@@ -170,7 +169,7 @@ button:hover{
 }
 
 .modal {
-	display: none;
+	/*display: none;*/
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -183,33 +182,3 @@ button:hover{
 	padding-top: 60px;
 	
 }
-
-.modal-content {
-	background-color: #fefefe;
-	margin: 5% auto 15% auto;
-	border: 1px solid blue;
-	width: 80%;
-}
-
-.close {
-	position: absolute;
-	right: 25px;
-	top: 0;
-	color: #000;
-	font-size: 35px;
-	font-weight: bold;
-}
-
-.close:hover,
-.close:focus{
-	color:red;
-	cursor:pointer;
-}
-
-.animate {
-	-webkit-animation: animatezoom 0.6s;
-	animation: animatezoom 0.6s;
-}
-
-@-webkit-keyframes animatezoom {from { -webkit-transform: scale(0); } to { -webkit-transform: scale(1);}}
-@keyframes animatezoom{from {transform:scale(0);} to {transform:scale(1);}}

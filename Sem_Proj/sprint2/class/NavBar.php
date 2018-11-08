@@ -23,8 +23,6 @@ class NavBar {
 	private $_currURL;
 	// $login: true = display login forum, false = do not;
 	private $loggedIn = false;
-	// $userState: true = admin, false = user;
-	private $userState = false;
 	private $pages = array(
 		'home.php' => 'Home',
 		'about.php' => 'About',
@@ -65,12 +63,20 @@ class NavBar {
 	function loginCode(){
 		$returnVal = "";
 		if($this->loggedIn == true){
-			
+			$returnVal .= "<li class = 'login'><button>Log Out</button></li>\n";
 		}else{
-			$returnVal .= "<li class = 'login'><a href='#'>Log In</a></li>\n";
+			$returnVal .= "<li class = 'login'><button onclick=\"document.getElementById('id00').style.display='block' \">Log In</button></li>\n";
 		}
 		
 		return (string)$returnVal;
+	}
+	
+	function setLog($fromSesLog){
+		$this->loggedIn = $fromSesLog;
+	}
+	
+	function getLog(){
+		return $this->loggedIn;
 	}
 	
 	
