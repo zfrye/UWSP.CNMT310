@@ -6,6 +6,7 @@ require_once("../class/Template.php");
 require_once("../class/DB.class.php");
 require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
+
 $page = new Template("Results");
 $page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
 $page->setTopSection();

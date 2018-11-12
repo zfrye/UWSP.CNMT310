@@ -65,6 +65,8 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
         $_SESSION["Name"] = $names[0];
 
         $_SESSION["Email"] = $result[0]["email"];
+
+        Print "Welcome " . $_SESSION["Name"] . "\n";
     }
     else
     {
