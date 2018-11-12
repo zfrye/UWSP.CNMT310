@@ -5,7 +5,7 @@ require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
 session_start();
 
-$page = new Template("Home");
+$page = new Template("Data");
 $page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
 $page->setTopSection();
 $page->setBottomSection();
