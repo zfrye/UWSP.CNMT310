@@ -19,39 +19,43 @@ function checkEmpty($value) {
 if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comment']) && checkEmpty($_POST['comment'])) {
 	print "Thank you for contacting us, someone will get back to you shortly";
 	
-	//Create DB object
-	$db = new DB();
+	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
+	{
+		//Create DB object
+		$db = new DB();
 
-	//Test connection
-	if (!$db->getConnStatus()) {
-	  print "An error has occurred with connection\n";
-	  exit;
-	}
-
-	//Set terms from POST
-	$email = $_POST["email"];
-	$phone = $_POST["phone"];
-	$comment = $_POST["comment"];
-
-	//Sanitize Input Term For Database
-	$emailSan = $db->dbEsc($email);
-	$phoneSan = $db->dbEsc($phone);
-	$commentSan = $db->dbEsc($comment);
-
-	//Input Query String
-	$query = "INSERT INTO contactRequests (inserttime,email,phone,message) VALUES (now(), '$emailSan', '$phoneSan', '$commentSan');";
-
-	//Execute Query
-	$result = $db->dbCall($query);
-
-	//Print error if failed query
-	if(!$result){
-		print "There was an error submitting you contact request. \n";
+		//Test connection
+		if (!$db->getConnStatus()) {
+		print "An error has occurred with connection\n";
 		exit;
+		}
+
+		//Sanitize Input Term For Database
+		$emailSan = $db->dbEsc($_POST["email"]);
+		$phoneSan = $db->dbEsc($_POST["phone"]);
+		$commentSan = $db->dbEsc($_POST["comment"]);
+
+		//Input Query String
+		$query = "INSERT INTO contactRequests (inserttime,email,phone,message) VALUES (now(), '$emailSan', '$phoneSan', '$commentSan');";
+
+		//Execute Query
+		$result = $db->dbCall($query);
+
+		//Print error if failed query
+		if(!$result){
+			print "There was an error submitting you contact request. \n";
+			exit;
+		}
 	}
+	else
+	{
+		print "Please enter a valid email address \n";
+	}
+
+	
 	
 }else{
-	echo "Error"; 
+	echo "Please fill out all of the fields. \n"; 
 }
 
 print $page->getBottomSection();
