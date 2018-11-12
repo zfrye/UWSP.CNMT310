@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once("../class/Template.php");
 require_once("../class/NavBar.php");
 $page = new Template("Home");

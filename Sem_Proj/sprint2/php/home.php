@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("../class/Template.php");
 require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
