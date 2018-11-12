@@ -5,7 +5,6 @@ session_start();
 require_once("../class/Template.php");
 require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
-session_start();
 
 $page = new Template("About");
 $page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
