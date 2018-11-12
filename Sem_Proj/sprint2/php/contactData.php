@@ -1,14 +1,15 @@
 <?php
 
-session_start();
-
 require_once("../class/Template.php");
 require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
-$page = new Template("Home");
+session_start();
+
+$page = new Template("Data");
 $page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
 $page->setTopSection();
 $page->setBottomSection();
+
 print $page->getTopSection();
 
 $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
@@ -28,12 +29,12 @@ if(isset($_SESSION['isAdmin'])){
 }
 print $log->getLogin();
 
-
 print " <div class='main'>\n";
-print "     <h1>Search page </h1>\n";
-print "     <form name='searchForm' action='./results.php' method='Post'>\n";
-print "         <input type='text' name='search' placeholder='Search..'>\n";
-print "     </form>\n";
-print " </div>\n";
+print " 	<h1>Home</h1>\n";
+print " 	<p>This is the homepage for Sprint 2 Assignment.</p>\n";
+print "	</div>\n";
+
+print "<script src='../js/myLogin.js'></script>";
 print $page->getBottomSection();
+
 ?>
