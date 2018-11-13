@@ -128,13 +128,14 @@ div.main{
 
 }
 
-div.modal input[type=text] {
+input[type=text] {
     width: 130px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
+    background-image: url('searchicon.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -142,18 +143,47 @@ div.modal input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-div.modal input[type=text]:focus {
+input[type=text]:focus {
     width: 100%;
 }
 
-div.modal input[type=text],div.modal input[type=password]{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
+input[type=email], select, textarea {
+    width: 50%;
+    padding: 12px 20px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
 }
+
+input[type=number], select, textarea {
+    width: 50%;
+    padding: 12px 20px 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+}
+
+textarea {
+	width: 55%;
+	height:80px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    resize: vertical;
+	margin:5%;
+	position:relatives;
+}
+
+input[type=submit] {
+    background-color: #3D4F61;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    float: left;
+}
+
+
+
 
 button {
 	background-color: rgb(110, 120, 152);
