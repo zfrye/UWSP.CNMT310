@@ -34,6 +34,8 @@ function checkEmpty($value) {
 	return !empty($value);
 }
 
+print " <div class='main'>\n";
+print " 	<h1>Authentication</h1>\n";
 if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_POST["password"]) && checkEmpty($_POST["password"])))
 {
     // Create DB Object
@@ -92,5 +94,8 @@ else
     Print "Please enter both a username and password \n";
 }
 
+print "	</div>\n";
+
 print "<script src='../js/myLogin.js'></script>";
+print $page->getBottomSection();
 ?>
