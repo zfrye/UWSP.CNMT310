@@ -66,6 +66,14 @@ if (isset($_POST['search']) && checkEmpty($_POST['search']))
 
 	//Print out Results
 	print "			<table style='width:100%'> \n";
+	print"				<tr>\n";
+	print"				<th>ID</th>\n";
+	print"				<th>Time Entered</th>\n";
+	print"				<th>Title</th>\n";
+	print"				<th>ISBN</th>\n";
+	print"				<th>Author</th>\n";
+	print"				<th>Status</th>\n";
+	print"				</tr>\n";
 	foreach($result as $row){
 		print"				<tr>\n";
 		foreach($row as $item){

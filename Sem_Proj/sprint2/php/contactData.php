@@ -57,6 +57,13 @@ if(!$result){
 
 //Print out Results
 print "			<table style='width:100%'> \n";
+print"				<tr>\n";
+print"				<th>ID</th>\n";
+print"				<th>Date Submitted</th>\n";
+print"				<th>Email</th>\n";
+print"				<th>Phone Number</th>\n";
+print"				<th>Message</th>\n";
+print"				</tr>\n";
 foreach($result as $row){
 	print"				<tr>\n";
 	foreach($row as $item){
