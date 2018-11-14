@@ -20,7 +20,7 @@ if(isset($_SESSION['isLoggedIn'])){
 	if(isset($_SESSION['isAdmin'])){
 		$nav->setAdmin($_SESSION['isAdmin']);
 		if($_SESSION['isAdmin'] == true){
-			$nav->setAdminNav;
+			$nav->setAdminNav();
 		}
 	}
 }
@@ -32,8 +32,39 @@ print $nav->getAdminNav();
 print $log->getLogin();
 
 print " <div class='main'>\n";
-print " 	<h1>Home</h1>\n";
-print " 	<p>This is the homepage for Sprint 2 Assignment.</p>\n";
+print " 	<h1>Contact Data Page</h1>\n";
+
+//Create DB object
+$db = new DB();
+
+//Test connection
+if (!$db->getConnStatus()) {
+	print "An error has occurred with connection\n";
+	exit;
+}
+
+//Search Query String
+$query = "SELECT * FROM contactrequests";
+
+//Execute Query
+$result = $db->dbCall($query);
+
+//Print error if failed query
+if(!$result){
+	print "No Results Found \n";
+	exit;
+}
+
+//Print out Results
+print "			<table style='width:100%'> \n";
+foreach($result as $row){
+	print"				<tr>\n";
+	foreach($row as $item){
+		print"					<td>$item</td>\n";
+	}
+	print"				</tr>\n";
+}
+
 print "	</div>\n";
 
 print "<script src='../js/myLogin.js'></script>";

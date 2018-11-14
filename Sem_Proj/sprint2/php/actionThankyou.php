@@ -24,7 +24,7 @@ print $nav->getNav();
 if(isset($_SESSION['isAdmin'])){
 	$nav->setAdmin($_SESSION['isAdmin']);
 	if($_SESSION['isAdmin'] == true){
-		$nav->setAdminNav;
+		$nav->setAdminNav();
 		print $nav->getAdminNav;
 	}
 }

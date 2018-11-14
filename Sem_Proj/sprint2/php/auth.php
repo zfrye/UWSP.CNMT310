@@ -24,7 +24,7 @@ print $nav->getNav();
 if(isset($_SESSION['isAdmin'])){
 	$nav->setAdmin($_SESSION['isAdmin']);
 	if($_SESSION['isAdmin'] == true){
-		$nav->setAdminNav;
+		$nav->setAdminNav();
 		print $nav->getAdminNav;
 	}
 }
@@ -62,13 +62,13 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
     if (password_verify($sanPassword, $result[0]["userpass"]))
     {
-        $_SESSION["IsLoggedIn"] = true;
+        $_SESSION["isLoggedIn"] = true;
 
         foreach($result as $entry)
         {
             if ($entry["rolename"] == "admin")
             {
-                $_SESSION["IsAdmin"] = true;
+                $_SESSION["isAdmin"] = true;
             }
         }
 

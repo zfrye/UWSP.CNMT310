@@ -75,7 +75,7 @@ class NavBar {
 		return (string)$returnVal;
 	}
 	
-	function setAdminNavSection(){
+	function setAdminNav(){
 		$returnVal = "";
 		$returnVal .= "<aside id='id01'>\n";
 		$returnVal .= "	<div class='links'>\n";
