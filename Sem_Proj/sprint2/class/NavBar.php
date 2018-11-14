@@ -67,7 +67,7 @@ class NavBar {
 	function loginCode(){
 		$returnVal = "";
 		if($this->loggedIn == true){
-			$returnVal .= "<li class = 'login'><button onclick='logOut.php'>Log Out</button></li>\n";
+			$returnVal .= "<li class = 'login'><button onclick=\"location.href='../php/logout.php'; \">Log Out</button></li>\n";
 		}else{
 			$returnVal .= "<li class = 'login'><button onclick=\"document.getElementById('id00').style.display='block' \">Log In</button></li>\n";
 		}

@@ -13,29 +13,13 @@ $page->setTopSection();
 $page->setBottomSection();
 print $page->getTopSection();
 
-$nav = new NavBar(basename($_SERVER['REQUEST_URI']));
-if(isset($_SESSION['isLoggedIn'])){
-	$nav->setLog($_SESSION['isLoggedIn']);
-}
-$nav->setNavSection();
-$log = new Login();
-$log->setLogin();
-print $nav->getNav();
-if(isset($_SESSION['isAdmin'])){
-	$nav->setAdmin($_SESSION['isAdmin']);
-	if($_SESSION['isAdmin'] == true){
-		$nav->setAdminNav();
-		print $nav->getAdminNav;
-	}
-}
-print $log->getLogin();
+$str = "";
 
 function checkEmpty($value) {
 	return !empty($value);
 }
 
-print " <div class='main'>\n";
-print " 	<h1>Authentication</h1>\n";
+
 if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_POST["password"]) && checkEmpty($_POST["password"])))
 {
     // Create DB Object
@@ -43,7 +27,7 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
     // Test Connection
     if (!$db->getConnStatus()) {
-        Print "An error has occurred with connection \n";
+        $str .= "An error has occurred with connection \n";
     }
 
     // Sanitize Username and Pass
@@ -58,8 +42,8 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
     //Print error if failed query
     if(!$result){
-        print "Account not found \n";
-        exit;
+        $str .="Account not found \n";
+        goto site;
     }
 
     if (password_verify($sanPassword, $result[0]["userpass"]))
@@ -82,18 +66,40 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
         $_SESSION["Email"] = $result[0]["email"];
 
-        Print "Welcome " . $_SESSION["Name"] . "\n";
+        $str .="Welcome " . $_SESSION["Name"] . "\n";
     }
     else
     {
-        Print "Bad Username or Password. \n";
+        $str .="Bad Username or Password. \n";
     }
 }
 else
 {
-    Print "Please enter both a username and password \n";
+    $str .="Please enter both a username and password \n";
 }
 
+site:
+
+$nav = new NavBar(basename($_SERVER['REQUEST_URI']));
+if(isset($_SESSION['isLoggedIn'])){
+	$nav->setLog($_SESSION['isLoggedIn']);
+	if(isset($_SESSION['isAdmin'])){
+		$nav->setAdmin($_SESSION['isAdmin']);
+		if($_SESSION['isAdmin'] == true){
+			$nav->setAdminNav();
+		}
+	}
+}
+$nav->setNavSection();
+$log = new Login();
+$log->setLogin();
+print $nav->getNav();
+print $nav->getAdminNav();
+print $log->getLogin();
+
+print " <div class='main'>\n";
+print " 	<h1>Authentication</h1>\n";
+print " <p>$str</p>\n";
 print "	</div>\n";
 
 print "<script src='../js/myLogin.js'></script>";
