@@ -1,134 +1,125 @@
 body {
-
     background-color: rgb(249, 251, 255);
-
 }
-
-
 
 h1 {
-
     color: black;
-
     text-align: center;
-
 }
-
-
 
 p {
-
     font-family: verdana;
-
     font-size: 15px;
-
 }
-
-
 
 nav {
-
-    background-color: rgb(42, 54, 56);
-	
-	padding: 5px;
-	
-	position: relative;
-	
+    background-color: rgb(42, 54, 56);	
+	padding: 10px;	
+	position: relative;	
 	overflow: hidden;
-
 	border-radius:10px;
-
 	border-bottom:5px solid;
-
 	border-bottom-color:rgb(70, 70, 70);
-
 	border-top:5px solid;
-
 	border-top-color:rgb(70, 70, 70);
-
 }
-div.wrapper {
+
+
+
+nav div.wrapper {
 	margin: 0;
 }
 
 nav li{
-
 	display: inline;
-
 }
 
 nav li.login {
-	float: right;
-	
+	float: right;	
 }
 
-div.links{
+nav div.links{
+	position:relative;
+}
+
+nav div.links{
 	position:relative;
 }
 
 nav ul li a {
-
 	list-style-type: none;
-
     color: rgb(244, 244, 244);
-
     text-align: center;
-
     padding: 14px 16px;
-
     font-size: 17px;
-
 	text-decoration:none;
-
 }
 
 nav ul li a:hover {
-
     background-color: rgb(167, 224, 232);
-
     color: black;
-
 }
 
 nav ul li.login a:hover {
-
-    background-color: rgba(255, 255, 255, .1);
-	
+    background-color: rgba(255, 255, 255, .1);	
 	color: white;
-
 }
 
 nav ul li a.active {
-
     background-color: rgb(98, 111, 142);
-
     color: white;
-
 }
- td {
+
+nav.adminNav {	
+	border-radius:10px;
+}
+
+aside#id01 nav.adminNav {
+    margin: 2px 14px 0px;
+}
+
+nav.adminNav ul{
+    padding: 5px 30px;
+    margin: 0;
+}
+
+nav.adminNav li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav.adminNav li {
+	color: white;
+}
+
+nav.adminNav ul li a {
+    color: rgb(15, 214, 8);
+}
+
+nav.adminNav ul li a:hover {
+    background-color: rgb(28, 36, 37);
+    color: rgb(244, 244, 244);
+}
+
+nav.adminNav ul li a.active {
+    background-color: rgb(98, 111, 142);
+    color: white;
+}
+
+td {
 	 text-align:center;
- }
+}
 
 div.main{
-
 	margin:14px;
-
 	background-color: rgba(144, 153, 155, .2);
-
 	border-radius: 5px;
-
 	border: 2px solid;
-
 	border-top-color: rgba(174, 183, 185, 1);
-
 	border-left-color: rgba(174, 183, 185, 1);
-
 	border-right-color: rgba(144, 153, 155, 1);
-
 	border-bottom-color: rgba(144, 153, 155, 1);
-
 	padding:15px;
-
 }
 input[type=text] {
     width: 130px;
@@ -138,7 +129,6 @@ input[type=text] {
     font-size: 16px;
     background-color: white;
     padding: 12px 20px 12px 40px;
-  
 }
 
 
@@ -252,7 +242,6 @@ b{
 	color:rgb(98, 111, 142);
 	position:relative;
 }
-
 
 button {
 	background-color: rgb(110, 120, 152);

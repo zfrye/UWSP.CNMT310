@@ -78,6 +78,7 @@ class NavBar {
 	function setAdminNav(){
 		$returnVal = "";
 		$returnVal .= "<aside id='id01'>\n";
+		$returnVal .= "<nav class='adminNav'>\n";
 		$returnVal .= "	<div class='links'>\n";
 		$returnVal .= "		<ul>\n";
 		foreach($this->adminPages as $filename => $pageTitle) {
@@ -89,12 +90,13 @@ class NavBar {
 		}
 		$returnVal .= "		</ul>\n";
 		$returnVal .= "	</div>\n";
+		$returnVal .= "</nav>\n";
 		$returnVal .= "</aside>\n";
 		
 		$this->_theAdminNav = $returnVal;
 		
 	}
-	
+	//id='adminNav'
 	function getAdminNav(){
 		return $this->_theAdminNav;
 	}
