@@ -5,6 +5,7 @@ session_start();
 require_once("../class/Template.php");
 require_once("../class/DB.class.php");
 require_once("../class/NavBar.php");
+require_once("../class/ModalLogin.php");
 
 $page = new Template("Thank You");
 $page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
@@ -13,8 +14,21 @@ $page->setBottomSection();
 print $page->getTopSection();
 
 $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
+if(isset($_SESSION['isLoggedIn'])){
+	$nav->setLog($_SESSION['isLoggedIn']);
+}
 $nav->setNavSection();
+$log = new Login();
+$log->setLogin();
 print $nav->getNav();
+if(isset($_SESSION['isAdmin'])){
+	$nav->setAdmin($_SESSION['isAdmin']);
+	if($_SESSION['isAdmin'] == true){
+		$nav->setAdminNav;
+		print $nav->getAdminNav;
+	}
+}
+print $log->getLogin();
 
 function checkEmpty($value) {
 	return !empty($value);
@@ -61,5 +75,6 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 	echo "Please fill out all of the fields. \n"; 
 }
 
+print "<script src='../js/myLogin.js'></script>";
 print $page->getBottomSection();
 ?>
