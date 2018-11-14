@@ -29,7 +29,7 @@ class LogIn{
 	function setLogin(){
 		$returnVal = "";
 		$returnVal .= "<div id='id00' class='modal'>\n";
-		$returnVal .= "	<form class='modal-content animate' action='../php/auth.php'>\n";
+		$returnVal .= "	<form class='modal-content animate' action='./auth.php' method='POST'>\n";
 		$returnVal .= "	<div class='container'>\n";
 		$returnVal .= "     <label for='username'><b>Username:</b></label>\n";
 		$returnVal .= "		<input type='text' placeholer='Enter UserName' name='username'><br/>\n";
