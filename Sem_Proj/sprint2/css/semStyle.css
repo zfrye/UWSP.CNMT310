@@ -105,6 +105,9 @@ nav ul li a.active {
     color: white;
 
 }
+ td {
+	 text-align:center;
+ }
 
 div.main{
 
@@ -127,7 +130,6 @@ div.main{
 	padding:15px;
 
 }
-
 input[type=text] {
     width: 130px;
     box-sizing: border-box;
@@ -135,13 +137,10 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  
 }
+
 
 input[type=text]:focus {
     width: 100%;
@@ -181,18 +180,54 @@ input[type=submit] {
     border-radius: 4px;
     float: left;
 }
-div.modal input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+
+.login h1{
+  padding: 10px 0px 5px 10px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 1px #fff;
+}
+.login form{
+   display:table-cell;
+   vertical-align:middle;
+   }
+
+ .login form p{
+  padding: 10px 0px;
+}
+.login form label{
+  display: block;
+  width: 70px;
+  margin-left: 20px;
+  background: #ccc;
+  padding: 0px 3px;
+  border-radius: 0 30px 0 0;
+  color: #111;
+  text-shadow: 0px 1px 0px #eee;
+  border-top: 1px solid #f8f8f8;
+  border-right: 1px solid #fff;
+}
+.login form input{
+  border: 1px solid #ccc;
+  padding: 10px 0;
+  border-radius: 0 5px 5px 0;
+  width: 259px;
+  margin-left: 20px;
+  box-shadow: 1px 1px #fff;
+}
+.login form input[type=submit]{
+  margin: 15px 0px 0px 160px;
+  width: 130px;
+  background: #62a1d1;
+  border: 1px solid #446f8e;
+  border-radius: 3px;
+  box-shadow: inset 0px 20px 0px rgba(255,255,255,0.1);
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
+}
+.login form input[type=submit]:hover{
+  box-shadow: inset 0px -20px 0px rgba(255,255,255,0.1);
 }
 
 div.modal input[type=text]:focus {
@@ -200,24 +235,33 @@ div.modal input[type=text]:focus {
 }
 
 div.modal input[type=text],div.modal input[type=password]{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
+	width:80%;
+	margin-left:10%;
+	margin-bottom:25px;
+	height:40px;
 	border: 1px solid #ccc;
-	box-sizing: border-box;
+	border-radius:10px;
+	padding: 0 0 0 10px;
+	font-size:14px;
+	&:focus{
+		border: 1px solid #ccc;
+	}
 }
 
+b{
+	color:rgb(98, 111, 142);
+	position:relative;
+}
 
 
 button {
 	background-color: rgb(110, 120, 152);
 	color: white;
 	padding: 14px 20px;
-	margin: 8px 0;
+	margin: 8px 10px;
 	border: none;
 	cursor: pointer;
-	border-radius:10px;
+	border-radius:5px;
 }
 
 button:hover{
@@ -240,10 +284,11 @@ button:hover{
 }
 
 .modal-content {
-	background-color: #fefefe;
+	background-color:#DCDFE2;
 	margin: 5% auto 15% auto;
-	border: 1px solid blue;
-	width: 80%;
+	border: 1px solid rgba(0,0,0,0.4);
+	width: 60%;
+	border-radius:2px;
 }
 
 .close {
