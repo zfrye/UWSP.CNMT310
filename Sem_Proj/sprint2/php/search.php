@@ -14,6 +14,7 @@ print $page->getTopSection();
 $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
 if(isset($_SESSION['isLoggedIn'])){
 	$nav->setLog($_SESSION['isLoggedIn']);
+	$nav->setName($_SESSION['Name']);
 	if(isset($_SESSION['isAdmin'])){
 		$nav->setAdmin($_SESSION['isAdmin']);
 		if($_SESSION['isAdmin'] == true){

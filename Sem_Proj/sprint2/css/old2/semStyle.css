@@ -12,20 +12,9 @@ p {
     font-size: 15px;
 }
 
-
-button {
-	background-color: rgb(110, 120, 152);
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 10px;
-	border: none;
-	cursor: pointer;
-	border-radius:5px;
-}
-
 nav {
     background-color: rgb(42, 54, 56);	
-	padding: 0 10px;	
+	padding: 10px;	
 	position: relative;	
 	overflow: hidden;
 	border-radius:10px;
@@ -42,26 +31,11 @@ nav div.wrapper {
 }
 
 nav li{
-	display: inline-block;
-}
-nav ul {
-    margin:0;
-}
-nav li p{
-    display: inline-block;
-    color:rgb(110, 120, 152);
-    color:rgba(110, 120, 152,1);
-    
+	display: inline;
 }
 
 nav li.login {
-	float: right;
-    display:inline-block;
-    margin: 2px 0;
-}
-
-nav .login button{
-    margin:0;
+	float: right;	
 }
 
 nav div.links{
@@ -96,22 +70,16 @@ nav ul li a.active {
     color: white;
 }
 
-nav li #name{
-    color: white;
-}
-
 nav.adminNav {	
-	border-radius:5px;
-    background-color: black;
-    
+	border-radius:10px;
 }
 
 aside#id01 nav.adminNav {
-    margin: -5px 14px 0px;
+    margin: 2px 14px 0px;
 }
 
 nav.adminNav ul{
-    padding: 0px 30px;
+    padding: 5px 30px;
     margin: 0;
 }
 
@@ -120,18 +88,22 @@ nav.adminNav li{
     list-style-type: none;
 }
 
+nav.adminNav li {
+	color: white;
+}
+
 nav.adminNav ul li a {
     color: rgb(15, 214, 8);
 }
 
 nav.adminNav ul li a:hover {
-    background-color: rgb(30, 30, 30);
-    color: rgb(244, 0, 0);
+    background-color: rgb(28, 36, 37);
+    color: rgb(244, 244, 244);
 }
 
 nav.adminNav ul li a.active {
-    background-color: rgb(30, 30, 30);
-    color: red;
+    background-color: rgb(98, 111, 142);
+    color: white;
 }
 
 td {
@@ -249,12 +221,8 @@ input[type=submit] {
 }
 
 div.modal input[type=text]:focus {
-    border-color:yellow;
+    width: 100%;
 }
-div.modal input[type=password]:focus {
-    border-color:yellow;
-}
-
 
 div.modal input[type=text],div.modal input[type=password]{
 	width:80%;
@@ -273,6 +241,16 @@ div.modal input[type=text],div.modal input[type=password]{
 b{
 	color:rgb(98, 111, 142);
 	position:relative;
+}
+
+button {
+	background-color: rgb(110, 120, 152);
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 10px;
+	border: none;
+	cursor: pointer;
+	border-radius:5px;
 }
 
 button:hover{
@@ -298,9 +276,8 @@ button:hover{
 	background-color:#DCDFE2;
 	margin: 5% auto 15% auto;
 	border: 1px solid rgba(0,0,0,0.4);
-	width: 50%;
+	width: 60%;
 	border-radius:2px;
-    padding:15px;
 }
 
 .close {
@@ -312,16 +289,15 @@ button:hover{
 	font-weight: bold;
 }
 
-.cancelbtn:hover,
-.cancelbtn:focus{
-    background-color: rgb(230,50,50);
-	color:black;
+.close:hover,
+.close:focus{
+	color:red;
 	cursor:pointer;
 }
 
 .animate {
-	-webkit-animation: animatezoom 0.5s;
-	animation: animatezoom 0.5s;
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s;
 }
 
 @-webkit-keyframes animatezoom {from { -webkit-transform: scale(0); } to { -webkit-transform: scale(1);}}

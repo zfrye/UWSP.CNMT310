@@ -22,9 +22,9 @@ class NavBar {
 	private $_theNav;
 	private $_theAdminNav;
 	private $_currURL;
-	// $login: true = display login forum, false = do not;
 	private $loggedIn = false;
 	private $admin = false;
+	private $accName;
 	private $pages = array(
 		'home.php' => 'Home',
 		'about.php' => 'About',
@@ -45,6 +45,7 @@ class NavBar {
 		$returnVal .= "<nav>\n";
 		$returnVal .= " <div class='links'>\n";
 		$returnVal .= " <ul>\n";
+		$returnVal .= $this->loginCode();
 		foreach($this->pages as $filename => $pageTitle) {
 			if($filename == $this->_currPage){
 				$returnVal .= "  <li><a href='#' class='active'>$pageTitle</a></li>\n";
@@ -52,7 +53,7 @@ class NavBar {
 				$returnVal .= "  <li><a href='$filename'>$pageTitle</a></li>\n";
 			}
 		}
-		$returnVal .= $this->loginCode();
+		$returnVal .= $this->displayName();
 		$returnVal .= " </ul>\n";
 		$returnVal .= " </div>\n";
 		$returnVal .= "</nav>\n";
@@ -64,12 +65,22 @@ class NavBar {
 		return $this->_theNav;
 	}
 	
+	function displayName(){
+		$returnVal = "";
+		if($this->loggedIn ==true){
+			$returnVal .= " <li class = 'name'><p>Hello, " . $this->accName . "</p></li>\n";
+		}else{
+			$returnVal .= " <li class = 'name'><p></p></li>\n";
+		}
+		return (string)$returnVal;
+	}
+	
 	function loginCode(){
 		$returnVal = "";
 		if($this->loggedIn == true){
-			$returnVal .= "<li class = 'login'><button onclick=\"location.href='../php/logout.php'; \">Log Out</button></li>\n";
+			$returnVal .= " <li class = 'login'><button onclick=\"location.href='../php/logout.php'; \">Log Out</button></li>\n";
 		}else{
-			$returnVal .= "<li class = 'login'><button onclick=\"document.getElementById('id00').style.display='block' \">Log In</button></li>\n";
+			$returnVal .= " <li class = 'login'><button onclick=\"document.getElementById('id00').style.display='block' \">Log In</button></li>\n";
 		}
 		
 		return (string)$returnVal;
@@ -115,6 +126,14 @@ class NavBar {
 	
 	function getAdmin(){
 		return $this->admin;
+	}
+	
+	function setName($fromSesVal){
+		$this->accName = $fromSesVal;
+	}
+	
+	function getName(){
+		return $this->accName;
 	}
 	
 	

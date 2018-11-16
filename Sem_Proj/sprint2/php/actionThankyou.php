@@ -16,18 +16,19 @@ print $page->getTopSection();
 $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
 if(isset($_SESSION['isLoggedIn'])){
 	$nav->setLog($_SESSION['isLoggedIn']);
+	$nav->setName($_SESSION['Name']);
+	if(isset($_SESSION['isAdmin'])){
+		$nav->setAdmin($_SESSION['isAdmin']);
+		if($_SESSION['isAdmin'] == true){
+			$nav->setAdminNav();
+		}
+	}
 }
 $nav->setNavSection();
 $log = new Login();
 $log->setLogin();
 print $nav->getNav();
-if(isset($_SESSION['isAdmin'])){
-	$nav->setAdmin($_SESSION['isAdmin']);
-	if($_SESSION['isAdmin'] == true){
-		$nav->setAdminNav();
-		print $nav->getAdminNav;
-	}
-}
+print $nav->getAdminNav();
 print $log->getLogin();
 
 function checkEmpty($value) {
