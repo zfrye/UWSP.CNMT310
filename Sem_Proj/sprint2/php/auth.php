@@ -66,7 +66,9 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
         $_SESSION["Email"] = $result[0]["email"];
 
-        $str .="Welcome " . $_SESSION["Name"] . "\n";
+        header('Location: ../php/home.php');
+        
+        exit;
     }
     else
     {
