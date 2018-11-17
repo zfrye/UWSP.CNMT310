@@ -5,13 +5,19 @@ body {
 h1 {
     color: black;
     text-align: center;
+    font-size: 36px;
+}
+
+h2 {
+    color:rgb(98, 111, 142);
+    font-family: verdana;
+    font-size: 20px;
 }
 
 p {
     font-family: verdana;
     font-size: 15px;
 }
-
 
 button {
 	background-color: rgb(110, 120, 152);
