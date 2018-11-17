@@ -31,11 +31,13 @@ print $nav->getNav();
 print $nav->getAdminNav();
 print $log->getLogin();
 
+$str = "";
+
 function checkEmpty($value) {
 	return !empty($value);
 }
 if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comment']) && checkEmpty($_POST['comment'])) {
-	print "Thank you for contacting us, someone will get back to you shortly";
+	$str .= "Thank you for contacting us, someone will get back to you shortly";
 	
 	if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
 	{
@@ -44,8 +46,8 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 
 		//Test connection
 		if (!$db->getConnStatus()) {
-		print "An error has occurred with connection\n";
-		exit;
+			$str .= "An error has occurred with connection\n";
+			exit;
 		}
 
 		//Sanitize Input Term For Database
@@ -61,20 +63,26 @@ if (isset($_POST['email']) && checkEmpty($_POST['email']) && isset($_POST['comme
 
 		//Print error if failed query
 		if(!$result){
-			print "There was an error submitting you contact request. \n";
+			$str .= "There was an error submitting you contact request. \n";
 			exit;
 		}
 	}
 	else
 	{
-		print "Please enter a valid email address \n";
+		$str .= "Please enter a valid email address \n";
 	}
 
 	
 	
 }else{
-	echo "Please fill out all of the fields. \n"; 
+	$str .= "Please fill out all of the fields. \n"; 
 }
+
+
+print " <div class='main'>\n";
+print " 	<h1>Contact Us</h1>\n";
+print " <p>$str</p>\n";
+print "	</div>\n";
 
 print "<script src='../js/myLogin.js'></script>";
 print $page->getBottomSection();
