@@ -1,0 +1,52 @@
+// Create DB Object
+    $db = new DB();
+
+    // Test Connection
+    if (!$db->getConnStatus()) {
+        $str .= "An error has occurred with connection \n";
+    }
+
+    // Sanitize Username and Pass
+    $sanUsername = $_POST["username"];
+    $sanPassword = $_POST["password"];
+
+    // Set query string to retrive User and Role for given Username
+    $query = "SELECT role.rolename,user.userpass,user.userstatus,user.realname,user.email FROM role,user2role,user WHERE username = '$sanUsername' AND user.id = user2role.userid AND role.id = user2role.roleid";
+
+    // Run query
+    $result = $db->dbCall($query);
+
+    //Print error if failed query
+    if(!$result){
+        $str .="Account not found \n";
+        goto site;
+    }
+
+    if (password_verify($sanPassword, $result[0]["userpass"]))
+    {
+        $_SESSION["isLoggedIn"] = true;
+
+        foreach($result as $entry)
+        {
+            if ($entry["rolename"] == "admin")
+            {
+                $_SESSION["isAdmin"] = true;
+            }
+        }
+
+        $fullname = $result[0]["realname"];
+
+        $names = explode(" ", $fullname);
+
+        $_SESSION["Name"] = $names[0];
+
+        $_SESSION["Email"] = $result[0]["email"];
+
+        header('Location: ../php/home.php');
+        
+        exit;
+    }
+    else
+    {
+        $str .="Bad Username or Password. \n";
+    }

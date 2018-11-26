@@ -1,0 +1,7 @@
+SESSION VARS
+
+
+$_SESISON['IsLoggedIn']
+$_SESISON['IsAdmin']
+$_SESISON['Name']
+$_SESISON['Email']
