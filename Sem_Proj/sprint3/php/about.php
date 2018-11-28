@@ -34,6 +34,19 @@ print $log->getLogin();
 
 print "<div class='main'>\n";
 print "<h1>About Us</h1>\n";
+print "<h2>Sprint 3</p></h2>\n";
+print "<p>Due 12/2/2018 - 11:59pm Central Time</p>
+		<p>For this final portion of the group assignment, you will split your code into frontend and (website/display) and backend (data-related) activities for authentication by creating a web service (see details below) for authentication for you project. Aditionally, you will update your project based on grading and feedback from previous sprints, if necessary.</p>\n";
+print " <b><p>Details:</p></b>\n";
+print "  <ul>\n";
+print "      <li><p>Create a REST web service (you only need to 			implement a POST response method) for authentication 			that returns a JSON-encoded response containing the information 			from the user table. Essentially, the same information that you were required to return for the previous sprint should now be implemented as a web service.</p></li>\n";
+print "      <li><p>Consume/call your web service for authentication and user data retrieval. The call to the web service should be JSON-encoded as well. Note that this means 					removing any and all SQL queries for user information from your 'frontend' code. In other words, the only way your code should retrieve user information is through its 			call to the authentication web service.</p></li>\n";
+		print "      <li><p>If your group did not earn full points on previous sprints, add items to your backlog such that the code meets the requirements from the previous sprints. </p></li>\n";
+		print "  </ul>\n";
+		  
+		print "  <b><p>Deliverable:</p></b>\n";
+		print "  <ul><p>Provide a text of PDF document to the dropbox containing the git commit IDs for all the group members and a URL where the group code can be tested.</p></ul><br/>\n";
+
 print "<h2>Sprint 2</p></h2>\n";
 print "<p>Due 11/18/2018 - 11:59pm Central Time</p>
        <p>This is a group assignment. You are expected to work within your group to complete this assignment. Do not work with or collaborate with other groups.\n"; 
