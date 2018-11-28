@@ -23,42 +23,44 @@ function checkEmpty($value) {
 if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_POST["password"]) && checkEmpty($_POST["password"])))
 {
     
-$data = array("username" => $_POST['username'],"pass" => $_POST["username"]);
-$dataJson = json_encode($data);// YOUR CODE HERE TO ENCODE AS JSON
+	$data = array("username" => $_POST['username'],"pass" => $_POST["password"]);
+	$dataJson = json_encode($data);// YOUR CODE HERE TO ENCODE AS JSON
 
-$postString = "user=YOU&password=SOMEPASS&data=" .
-               urlencode($dataJson);
+	$postString = "data=" .
+				urlencode($dataJson);
 
-$contentLength = strlen($postString);
+	$contentLength = strlen($postString);
 
-$header = array(
-  'Content-Type: application/x-www-form-urlencoded',
-  'Content-Length: ' . $contentLength
-);
+	$header = array(
+	'Content-Type: application/x-www-form-urlencoded',
+	'Content-Length: ' . $contentLength
+	);
 
-$url = "http://cnmtsrv2.uwsp.edu/~zfrye858/lab6/sum.php";
+	$url = "http://cnmtsrv2.uwsp.edu/~cnimm823/Sem_Proj/sprint3/php/serverAuth.php";
 
-$ch = curl_init($url);// YOUR CODE HERE TO INITIALIZE A CURL RESOURCE
+	$ch = curl_init($url);// YOUR CODE HERE TO INITIALIZE A CURL RESOURCE
 
-curl_setopt($ch,
-    CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch,
-    CURLOPT_POSTFIELDS, $postString);
-curl_setopt($ch,
-    CURLOPT_HTTPHEADER, $header);
-curl_setopt($ch,
-	CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch,
-	CURLOPT_URL, $url);
-// USE curl_setopt to set the following options:
-// CURLOPT_RETURNTRANSFER
-// CURLOPT_URL
+	curl_setopt($ch,
+		CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch,
+		CURLOPT_POSTFIELDS, $postString);
+	curl_setopt($ch,
+		CURLOPT_HTTPHEADER, $header);
+	curl_setopt($ch,
+		CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch,
+		CURLOPT_URL, $url);
+	// USE curl_setopt to set the following options:
+	// CURLOPT_RETURNTRANSFER
+	// CURLOPT_URL
 
-$return = curl_exec($ch);// YOUR CODE HERE TO EXECUTE THE CURL CALL
+	$return = curl_exec($ch);// YOUR CODE HERE TO EXECUTE THE CURL CALL
 
-print $return;
+	curl_close($ch);
 
-curl_close($ch);
+	$returnData = json_decode($return, true);
+
+	var_dump($returnData);
 }
 else
 {
