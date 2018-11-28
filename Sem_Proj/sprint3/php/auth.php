@@ -7,12 +7,6 @@ require_once("../class/DB.class.php");
 require_once("../class/NavBar.php");
 require_once("../class/ModalLogin.php");
 
-$page = new Template("Thank You");
-$page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
-$page->setTopSection();
-$page->setBottomSection();
-print $page->getTopSection();
-
 $str = "";
 
 function checkEmpty($value) {
@@ -60,12 +54,30 @@ if ((isset($_POST["username"]) && checkEmpty($_POST["username"])) && (isset($_PO
 
 	$returnData = json_decode($return, true);
 
-	var_dump($returnData);
+	if (isset($returnData["Error"]))
+	{
+		$str .= $returnData["Error"];
+	}
+	else
+	{
+		$_SESSION['isLoggedIn'] = $returnData['isLoggedIn'];
+		$_SESSION['isAdmin'] = $returnData['isAdmin'];
+		$_SESSION['Name'] = $returnData['Name'];
+		$_SESSION['Email'] = $returnData['Email'];
+		header('Location: ../php/home.php');
+		exit;
+	}
 }
 else
 {
-    $str .="Please enter both a username and password \n";
+    $str .= "Please enter both a username and password \n";
 }
+
+$page = new Template("Thank You");
+$page->setHeadSection("<link rel='stylesheet' href='../css/semStyle.css'>");
+$page->setTopSection();
+$page->setBottomSection();
+print $page->getTopSection();
 
 site:
 
