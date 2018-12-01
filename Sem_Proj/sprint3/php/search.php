@@ -12,6 +12,16 @@ $page->setBottomSection();
 print $page->getTopSection();
 
 $nav = new NavBar(basename($_SERVER['REQUEST_URI']));
+
+//checking for JS
+print "<noscript>\n";
+print "<aside id='id00'>\n";
+print "<p>Enable JavaScript to login, etc.</p>\n";
+print "</aside>\n";
+print "</noscript>\n";
+print "\n";
+
+//Setting Variables for Session
 if(isset($_SESSION['isLoggedIn'])){
 	$nav->setLog($_SESSION['isLoggedIn']);
 	$nav->setName($_SESSION['Name']);
@@ -22,6 +32,8 @@ if(isset($_SESSION['isLoggedIn'])){
 		}
 	}
 }
+
+//displaying Navigation.
 $nav->setNavSection();
 $log = new Login();
 $log->setLogin();
@@ -29,7 +41,7 @@ print $nav->getNav();
 print $nav->getAdminNav();
 print $log->getLogin();
 
-
+//page specific
 print " <div class='main'>\n";
 print "     <h1>Search page </h1>\n";
 print "     <form name='searchForm' action='./results.php' method='Post'>\n";

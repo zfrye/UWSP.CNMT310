@@ -29,6 +29,17 @@ button {
 	border-radius:5px;
 }
 
+aside#id00 {
+    margin: -15px 14px -15px;
+	background-color: rgb(240,70,70);
+	
+}
+
+aside#id00 p {
+	color: white;
+	text-align:center;
+}
+
 nav {
     background-color: rgb(42, 54, 56);	
 	padding: 0 10px;	
